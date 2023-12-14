@@ -3,20 +3,11 @@ import requests
 
 class CinegyAir:
     
-    def __init__(self, host, port=None, device=None):
+    def __init__(self, host, port='5521', device='video'):
         
         self.host = host
-
-        if port is None:
-            self.port = '5521'
-        else:
-            self.port = port
-
-        if device is None:
-            self.device = 'video'
-        else:
-            self.device = device
-
+        self.port = port
+        self.device = device
         self.base_url = f'http://{self.host}:{self.port}/{self.device}'
 
     def command(self, data):
