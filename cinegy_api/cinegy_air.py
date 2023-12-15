@@ -30,7 +30,7 @@ class CinegyAir:
         status_response = requests.get(base_url_status)
         if status_response.status_code != requests.codes.ok:
             status_response.raise_for_status()
-        return status_response.text
+        return status_response
 
 
     def list(self, id=None):
@@ -42,4 +42,4 @@ class CinegyAir:
         list_response = requests.get(base_url_list)
         if list_response.status_code != requests.codes.ok:
             list_response.raise_for_status()
-        return list_response.text
+        return list_response
