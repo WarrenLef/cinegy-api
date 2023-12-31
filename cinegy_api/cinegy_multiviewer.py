@@ -26,8 +26,8 @@ class CinegyMultiviewer:
 
     def get_status(self) -> requests.Response:
         '''Returns status of Cinegy Multiviewer'''
-        base_url_command = f'{self.base_url}/GetStatus'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetStatus'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -35,8 +35,8 @@ class CinegyMultiviewer:
     
     def get_srt_stats(self) -> requests.Response:
         '''Returns SRT connection statistics'''
-        base_url_command = f'{self.base_url}/GetSRTStats'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetSRTStats'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -44,8 +44,8 @@ class CinegyMultiviewer:
 
     def get_players_number(self) -> requests.Response:
         '''Returns the number of players loaded into the current layout'''
-        base_url_command = f'{self.base_url}/GetPlayersNumber'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetPlayersNumber'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -53,8 +53,8 @@ class CinegyMultiviewer:
 
     def get_active_player(self) -> requests.Response:
         '''Returns the zero-based index of the active / selected player'''
-        base_url_command = f'{self.base_url}/GetActivePlayer'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetActivePlayer'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -66,8 +66,8 @@ class CinegyMultiviewer:
         Parameters:
             id (str): The Index of the player to activate. Index range is 0 to "count-1" of players.
         '''
-        base_url_command = f'{self.base_url}/SetActivePlayer?ID={id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/SetActivePlayer?ID={id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -75,8 +75,8 @@ class CinegyMultiviewer:
     
     def get_layouts_number(self) -> requests.Response:
         '''Returns the number of layouts loaded into Cinegy Multiviewer'''
-        base_url_command = f'{self.base_url}/GetLayoutsNumber'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetLayoutsNumber'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -88,8 +88,8 @@ class CinegyMultiviewer:
         Parameters:
             id (str): The ID of the target Cinegy Multiviewer layout.
         '''
-        base_url_command = f'{self.base_url}/GetLayoutTitle?ID={id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetLayoutTitle?ID={id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -102,8 +102,8 @@ class CinegyMultiviewer:
             id (str): The ID of the target Cinegy Multiviewer layout.
             title (str): The new layout name.
         '''
-        base_url_command = f'{self.base_url}/SetLayoutTitle?ID={id}&Title={title}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/SetLayoutTitle?ID={id}&Title={title}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -116,8 +116,8 @@ class CinegyMultiviewer:
             player_id (str): The ID of the Cinegy Multiviewer player.
             title (str): The new player title.
         '''
-        base_url_command = f'{self.base_url}/SetPlayerTitle?PlayerID={player_id}&Title={title}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/SetPlayerTitle?PlayerID={player_id}&Title={title}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -125,8 +125,8 @@ class CinegyMultiviewer:
 
     def get_active_layout(self) -> requests.Response:
         '''Returns the zero-based index of the active layout'''
-        base_url_command = f'{self.base_url}/GetActiveLayout'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetActiveLayout'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -138,8 +138,8 @@ class CinegyMultiviewer:
         Parameters:
             id (str): The Index of the layout to activate. Index range is 0 to "count-1" of layouts.
         '''
-        base_url_command = f'{self.base_url}/SetActiveLayout?ID={id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/SetActiveLayout?ID={id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -151,8 +151,8 @@ class CinegyMultiviewer:
         Parameters:
             player_id (str): The Index of the player to query. Index range is 0 to "count-1" of players.
         '''
-        base_url_command = f'{self.base_url}/GetAudioChannelsNumber?PlayerID={player_id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetAudioChannelsNumber?PlayerID={player_id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -165,8 +165,8 @@ class CinegyMultiviewer:
             player_id (str): The Index of the player to set. Index range is 0 to "count-1" of players.
             id (str): The index of the audio channel.
         '''
-        base_url_command = f'{self.base_url}/SetActiveAudioChannel?PlayerID={player_id}&ID={id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/SetActiveAudioChannel?PlayerID={player_id}&ID={id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -178,8 +178,8 @@ class CinegyMultiviewer:
         Parameters:
             player_id (str): The Index of the player to query. Index range is 0 to "count-1" of players.
         '''
-        base_url_command = f'{self.base_url}/GetActiveAudioChannel?PlayerID={player_id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetActiveAudioChannel?PlayerID={player_id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -187,8 +187,8 @@ class CinegyMultiviewer:
 
     def restart(self) -> requests.Response:
         '''Causes a soft-restart of Cinegy Multiviewer, reloading settings and layouts'''
-        base_url_command = f'{self.base_url}/Restart'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/Restart'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -200,8 +200,8 @@ class CinegyMultiviewer:
         Parameters:
             file (str): Path to an accessible WAV file.
         '''
-        base_url_command = f'{self.base_url}/PlayAlarm?FileName={file}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/PlayAlarm?FileName={file}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -214,8 +214,8 @@ class CinegyMultiviewer:
             player_id (str): The Index of the player to query. Index range is 0 to "count-1" of players.
             color (str): Specify color to set players border. ARGB hex format.
         '''
-        base_url_command = f'{self.base_url}/SetPlayerBorderColor?PlayerID={player_id}&Color={color}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/SetPlayerBorderColor?PlayerID={player_id}&Color={color}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -227,8 +227,8 @@ class CinegyMultiviewer:
         Parameters:
             player_id (str): The Index of the player to query. Index range is 0 to "count-1" of players.
         '''
-        base_url_command = f'{self.base_url}/GetPlayerBorderColor?PlayerID={player_id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetPlayerBorderColor?PlayerID={player_id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
@@ -240,8 +240,8 @@ class CinegyMultiviewer:
         Parameters:
             player_id (str): The Index of the player to query. Index range is 0 to "count-1" of players.
         '''
-        base_url_command = f'{self.base_url}/GetPlayerTitle?PlayerID={player_id}'
-        response = requests.get(base_url_command)
+        base_url = f'{self.base_url}/GetPlayerTitle?PlayerID={player_id}'
+        response = requests.get(base_url)
 
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
