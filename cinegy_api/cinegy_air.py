@@ -13,7 +13,7 @@ class CinegyAir:
         device (str): The Cinegy Air engine device name.
     '''
     
-    def __init__(self, host: str, port: str = '5521', device: str = 'video'):
+    def __init__(self, host: str, port: str = '5521', device: str = 'video') -> None:
         '''
         Initialises an Cinegy Air API object.
 
@@ -64,10 +64,10 @@ class CinegyAir:
                 </SetVariables>
         '''
 
-        base_url_command = f'{self.base_url}/command'
+        base_url = f'{self.base_url}/command'
         headers = {'Content-Type': 'text/xml'}
 
-        response = requests.post(base_url_command, data=data, headers=headers)
+        response = requests.post(base_url, data=data, headers=headers)
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
         return response
@@ -81,13 +81,13 @@ class CinegyAir:
         '''
 
         if item is None:
-            base_url_status = f'{self.base_url}/status'
+            base_url = f'{self.base_url}/status'
         elif item == 'active':
-            base_url_status = f'{self.base_url}/status/active'
+            base_url = f'{self.base_url}/status/active'
         elif item == 'cued':
-            base_url_status = f'{self.base_url}/status/cued'
+            base_url = f'{self.base_url}/status/cued'
 
-        response = requests.get(base_url_status)
+        response = requests.get(base_url)
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
         return response
@@ -101,11 +101,33 @@ class CinegyAir:
         '''
 
         if id is None:
-            base_url_list = f'{self.base_url}/list'
+            base_url = f'{self.base_url}/list'
         else:
-            base_url_list = f'{self.base_url}/list/{id}'
+            base_url = f'{self.base_url}/list/{id}'
 
-        response = requests.get(base_url_list)
+        response = requests.get(base_url)
+        if response.status_code != requests.codes.ok:
+            response.raise_for_status()
+        return response
+    
+    def get_metrics(self) -> requests.Response:
+        """
+        GET Cinegy engine metrics
+        """
+        base_url = f'{self.base_url}/metrics'
+        response = requests.get(base_url)
+
+        if response.status_code != requests.codes.ok:
+            response.raise_for_status()
+        return response
+    
+    def get_metrics_srt(self) -> requests.Response:
+        """
+        GET Cinegy engine SRT metrics
+        """
+        base_url = f'{self.base_url}/metrics/srt'
+        response = requests.get(base_url)
+
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
         return response
