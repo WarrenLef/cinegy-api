@@ -246,3 +246,13 @@ class CinegyMultiviewer:
         if response.status_code != requests.codes.ok:
             response.raise_for_status()
         return response
+    
+    def get_web_socket_preview_info(self) -> requests.Response:
+        '''Returns the parameters of WEB stream for the corresponding WEB socket.'''
+
+        base_url = f'{self.base_url}/GetWebSocketPreviewInfo'
+        response = requests.get(base_url)
+
+        if response.status_code != requests.codes.ok:
+            response.raise_for_status()
+        return response
